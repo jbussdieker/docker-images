@@ -1,0 +1,7 @@
+task :build do
+  exec 'docker build -t jbussdieker/carbon .'
+end
+
+task :run do
+  exec 'docker run -it -p 2003:2003 -p 2004:2004 -p 7002:7002 -v "$PWD/conf":/opt/graphite/conf -v "$PWD/storage/whisper":/opt/graphite/storage/whisper jbussdieker/carbon'
+end

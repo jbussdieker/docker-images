@@ -1,0 +1,7 @@
+task :build do
+  exec 'docker build -t jbussdieker/graphite-web .'
+end
+
+task :run do
+  exec 'docker run -it -p 8080:8080 -v "$PWD/../carbon/storage/whisper":/opt/graphite/storage/whisper jbussdieker/graphite-web bash'
+end
