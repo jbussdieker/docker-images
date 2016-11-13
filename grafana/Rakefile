@@ -1,0 +1,7 @@
+task :build do
+  exec 'docker build -t jbussdieker/grafana .'
+end
+
+task :run do
+  exec 'docker run -it -p 3000:3000 -v "$PWD/data:/var/lib/grafana" jbussdieker/grafana'
+end

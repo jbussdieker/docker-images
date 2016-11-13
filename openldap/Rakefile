@@ -1,0 +1,7 @@
+task :build do
+  exec 'docker build -t jbussdieker/openldap .'
+end
+
+task :run do
+  exec 'docker run -it -p 389:389 -v "$PWD/ldap:/var/lib/ldap" jbussdieker/openldap'
+end
