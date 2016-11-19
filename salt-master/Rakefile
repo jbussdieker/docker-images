@@ -1,0 +1,7 @@
+task :build do
+  exec 'docker build -t jbussdieker/salt-master .'
+end
+
+task :run do
+  exec 'docker run -it -p 4505:4505 -p 4506:4506 -v "$PWD/conf:/etc/salt" -v "$PWD/srv:/srv" jbussdieker/salt-master'
+end
