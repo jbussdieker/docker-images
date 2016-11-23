@@ -1,0 +1,8 @@
+task :build do
+  exec 'docker build -t jbussdieker/salt-minion .'
+end
+
+task :run do
+  #exec 'docker run -it -v "$PWD/conf:/etc/salt" jbussdieker/salt-minion state.apply --master $SALT_MASTER'
+  exec 'docker run -it -v "$PWD/conf:/etc/salt" jbussdieker/salt-minion state.show_top --master $SALT_MASTER'
+end
